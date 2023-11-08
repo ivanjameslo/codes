@@ -70,11 +70,10 @@ CREATE TABLE Car_Sales_Transactions (
     Payment_Date DATE,
     FOREIGN KEY (Customer_ID) REFERENCES Customer_Masterlist(Customer_ID),
     FOREIGN KEY (Employee_ID) REFERENCES Employee_Masterlist(Employee_ID),
-    FOREIGN KEY (Vehicle_ID) REFERENCES Vehicle_Masterlist(Vehicle_ID),
-    FOREIGN KEY (Parts_ID) REFERENCES Parts_Masterlist(Parts_ID)
+    FOREIGN KEY (Vehicle_ID) REFERENCES Vehicle_Masterlist(Vehicle_ID)
 );
 
-insert into Vehicle_Masterlist (Vehicle_ID, Brand, Model, Variant, Transmission, Color, Fuel_Type, Year_Model, Warranty, Price)
+insert into Vehicle_Masterlist (Brand, Model, Variant, Transmission, Color, Fuel_Type, Year_Model, Warranty, Price)
 values 
 -- Vehicle ID 1
 ('Mitsubishi', 'Montero Sport', 'GLX 2.4 4x2 MT', 'Manual (MT)', 'Black', 'Diesel', '2023', '3 Years (100,000 km)', '1568000.00'),
@@ -111,7 +110,7 @@ values
 -- Vehicle ID 15
 ('Mitsubishi', 'L300', 'FB Body Dual AC', 'manual (MT)', 'White', 'Diesel', '2023', '3 Years (100,000 km)', '998000.00');
 
-insert into Customer_Masterlist (Customer_ID, LastName, FirstName, MiddleName, Street, City, Province, Country, ZIP_Code, Email, Phone_Number)
+insert into Customer_Masterlist (LastName, FirstName, MiddleName, Street, City, Province, Country, ZIP_Code, Email, Phone_Number)
 values 
 -- ID 1
 ('Vales', 'Marc Linnus', 'Amador', 'Deca Cat. G.', 'Davao City', 'Davao del Sur', 'Philippines', '8000', 'mlavales@addu.edu.ph', '09487268431'),
@@ -134,7 +133,7 @@ values
 -- ID 10
 ('Sarillo', 'Adolfo Cedric', 'Salcedo', 'Tionko Street, Poblacion', 'Davao City', 'Davao del Sur', 'Philippines', '8000', 'adocssarillo@addu.edu.ph', '09542140134');
 
-insert into Employee_Masterlist (Employee_ID, LastName, FirstName, MiddleName, Email, Phone_Number, Employed_Date, Employee_Type, Employee_Specification, Salary)
+insert into Employee_Masterlist (LastName, FirstName, MiddleName, Email, Phone_Number, Employed_Date, Employee_Type, Employee_Specification, Salary)
 values
 -- Employee ID 1
 ('Du', 'Ellyanna Nicole', 'Louh', 'enldu@addu.edu.ph', '09451246276', '2023-09-12', 'Sales', 'Manager', '5500.50'),
@@ -149,7 +148,7 @@ values
 -- Employee ID 6
 ('Aguado', 'Emmanuel', 'Diaz', 'eaguado@addu.edu.ph', '09498501280', '2023-09-15', 'Mechanic', 'Diesel Mechanic', '4800.50');
 
-insert into Parts_Masterlist (Parts_ID, Part_Name, Stocks, Price)
+insert into Parts_Masterlist (Part_Name, Stocks, Price)
 values
 ('Front Bumper', '200', '15000.00'),
 ('Body Shell (Car)', '200', '50000.00'),
@@ -166,17 +165,15 @@ values
 ('Projector Lens', '200', '6350.00'),
 ('Reflector', '200', '1500.00');
 
-insert into Car_Sales_Transactions (Transactions_ID, Customer_ID, Employee_ID, Vehicle_ID, Sale_Date, Total_Amount, Payment_Method, Payment, Payment_Date)
+insert into Car_Sales_Transactions (Customer_ID, Employee_ID, Vehicle_ID, Sale_Date, Total_Amount, Payment_Method, Payment, Payment_Date)
 values
--- ano ba payment methods natin WAHAHAHAH
--- not sure sa payment lol what if hindi full..? partial ba or
-('3','6','9','10/01/2023','1198000.00','Cash','Full','10/01/2023'),
-('7','1','7','10/03/2023','1068000.00','Cash','Full','10/03/2023'),
-('2','4','6','10/7/2023','1827000.00','Card','Full','10/07/2023'),
-('1','2','3','10/10/2023','1328000.00','Cash','Partial','10/10/2023'),
-('5','5','5','10/11/2023','1048000.00','Card','Full','10/11/2023'),
-('10','3','13','10/15/2023','1328000.00','Cash','Full','10/15/2023'),
-('4','1','12','10/20/2023','1363000.00','Cash','Partial','10/20/2023'),
-('6','3','11','10/22/2023','1353000.00','Cash','Full','10/22/2023'),
-('9','5','2','10/23/2023','1796000.00','Cash','Full','10/23/2023'),
-('8','1','15','10/27/2023','998000.00','Card','Partial','10/27/2023');
+('3', '6', '9', '2023-10-01', '1198000.00', 'Cash', 'Full', '2023-10-01'),
+('7', '1', '7', '2023-10-03', '1068000.00', 'Cash', 'Full', '2023-10-03'),
+('2', '4', '6', '2023-10-07', '1827000.00', 'Card', 'Monthly', '2023-10-07'),
+('1', '2', '3', '2023-10-10', '1328000.00', 'Cash', 'Full', '2023-10-10'),
+('5', '5', '5', '2023-10-11', '1048000.00', 'Card', 'Monthly', '2023-10-11'),
+('10', '3', '13', '2023-10-15', '1328000.00', 'Cash', 'Full', '2023-10-15'),
+('4', '1', '12', '2023-10-20', '1363000.00', 'Cash', 'Full', '2023-10-20'),
+('6', '3', '11', '2023-10-22', '1353000.00', 'Cash', 'Full', '2023-10-22'),
+('9', '5', '2', '2023-10-23', '1796000.00', 'Cash', 'Full', '2023-10-23'),
+('8', '1', '15', '2023-10-27', '998000.00', 'Card', 'Monthly', '2023-10-27');
