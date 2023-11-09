@@ -73,6 +73,41 @@ CREATE TABLE Car_Sales_Transactions (
     FOREIGN KEY (Vehicle_ID) REFERENCES Vehicle_Masterlist(Vehicle_ID)
 );
 
+CREATE TABLE Services (
+    Service_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Service_Type VARCHAR(50),
+    Service_Desc VARCHAR(50),
+    Employee_ID INT NOT NULL,
+    Service_Price DECIMAL(20, 2),
+    FOREIGN KEY (Employee_ID) REFERENCES Employee_Masterlist(Employee_ID)
+);
+
+insert into Services (Service_Type, Service_Desc, Employee_ID, Service_Price)
+values
+('General Maintenance', 'Oil Change', '4', '60000.00'),
+('General Maintenance', 'Filter Replacement', '6', '70000.00'),
+('General Maintenance', 'Inspection', '4', '50000.00'),
+('Tire Services', 'Tire Rotation', '5', '15000.00'),
+('Tire Services', 'Tire Mounting', '5', '6000.00'),
+('Transmission Services', 'Axle Replacement', '5', '30000.00'),
+('Transmission Services', 'Clutch Repair & Replacement', '5', '20000.00'),
+('Engine Services', 'Engine Perfomance Check', '6', '45000.00'),
+('Engine Services', 'Drivability and Diagnostics Repair', '6', '450000.00'),
+('More Repair Services', 'Electronic Trouble Shooting', '4', '25000.00'),
+('More Repair Services', 'Aircon Conditioning & Repair', '4', '25000.00');
+
+CREATE TABLE Employee_History (
+    EH_ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Employee_ID INT NOT NULL,
+    Previous_Position VARCHAR(50),
+    Current_Position VARCHAR(50)
+);
+
+insert into Employee_History (Employee_ID, Previous_Position, Current_Position)
+values
+('1', 'Manger')
+
+
 insert into Vehicle_Masterlist (Brand, Model, Variant, Transmission, Color, Fuel_Type, Year_Model, Warranty, Price)
 values 
 -- Vehicle ID 1
